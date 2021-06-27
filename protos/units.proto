@@ -1,0 +1,585 @@
+syntax = "proto3";
+
+package units;
+
+option go_package = "github.com/m5eio/units";
+
+message Name {
+  string name = 1;
+  string lang = 2;
+}
+
+message Symbol {
+  enum PredefinedTypes {
+    UNSPECIFIED = 0;
+    ASCII = 1;
+    Unicode = 2;
+    LaTeX = 3;
+    HTML = 4;
+    MathML = 5;
+    SVG = 6;
+  }
+
+  string symbol = 1;
+  string type = 2;
+  string lang = 3;
+}
+
+message Note {
+  string note = 1;
+  string lang = 2;
+}
+
+message Reference {
+  string url = 1;
+  string name = 2;
+  string lang = 3;
+}
+
+message Definition {
+  string definition = 1;
+  string source_url = 2;
+  string source_name = 3;
+  string lang = 4;
+}
+
+message History {
+  string history = 1;
+  string source_url = 2;
+  string source_name = 3;
+  string lang = 4;
+}
+
+message Remark {
+  string remark = 1;
+  string source_url = 2;
+  string source_name = 3;
+  string lang = 4;
+}
+
+message System {
+  string name = 1;
+  string type = 2;
+  string lang = 3;
+}
+
+message CodeListValue {
+  string unit_code_value = 1;
+  string code_list_name = 2;
+  string code_list_version = 3;
+  string location_url = 4;
+  string organization_name = 5;
+  string organization_uri = 6;
+  string lang = 7;
+}
+
+message EnumeratedRootUnit {
+  enum Unit {
+    meter = 0;
+    gram = 1;
+    second = 2;
+    ampere = 3;
+    kelvin = 4;
+    mole = 5;
+    candela = 6;
+    radian = 7;
+    steradian = 8;
+    hertz = 9;
+    newton = 10;
+    pascal = 11;
+    joule = 12;
+    watt = 13;
+    coulomb = 14;
+    volt = 15;
+    farad = 16;
+    ohm = 17;
+    siemens = 18;
+    weber = 19;
+    tesla = 20;
+    henry = 21;
+    degree_Celsius = 22;
+    lumen = 23;
+    lux = 24;
+    katal = 25;
+    becquerel = 26;
+    gray = 27;
+    sievert = 28;
+    minute = 29;
+    hour = 30;
+    day = 31;
+    arc_degree = 32;
+    arc_minute = 33;
+    arc_second = 34;
+    liter = 35;
+    metric_ton = 36;
+    electronvolt = 37;
+    unified_atomic_mass_unit = 38;
+    astronomical_unit = 39;
+    atomic_unit_of_1st_hyperpolarizability = 40;
+    atomic_unit_of_2nd_hyperpolarizability = 41;
+    atomic_unit_of_action = 42;
+    atomic_unit_of_charge = 43;
+    atomic_unit_of_charge_density = 44;
+    atomic_unit_of_current = 45;
+    atomic_unit_of_electric_dipole_moment = 46;
+    atomic_unit_of_electric_field = 47;
+    atomic_unit_of_electric_field_gradient = 48;
+    atomic_unit_of_electric_polarizability = 49;
+    atomic_unit_of_electric_potential = 50;
+    atomic_unit_of_electric_quadrupole_moment = 51;
+    atomic_unit_of_energy = 52;
+    atomic_unit_of_force = 53;
+    atomic_unit_of_length = 54;
+    atomic_unit_of_magnetic_dipole_moment = 55;
+    atomic_unit_of_magnetic_flux_density = 56;
+    atomic_unit_of_magnetizability = 57;
+    atomic_unit_of_mass = 58;
+    atomic_unit_of_momentum = 59;
+    atomic_unit_of_permittivity = 60;
+    atomic_unit_of_time = 61;
+    atomic_unit_of_velocity = 62;
+    natural_unit_of_action = 63;
+    natural_unit_of_action_in_eV_s = 64;
+    natural_unit_of_energy = 65;
+    natural_unit_of_energy_in_MeV = 66;
+    natural_unit_of_length = 67;
+    natural_unit_of_mass = 68;
+    natural_unit_of_momentum = 69;
+    natural_unit_of_momentum_in_MeV_per_c = 70;
+    natural_unit_of_time = 71;
+    natural_unit_of_velocity = 72;
+    nautical_mile = 73;
+    knot = 74;
+    angstrom = 75;
+    are = 76;
+    hectare = 77;
+    barn = 78;
+    bar = 79;
+    gal = 80;
+    curie = 81;
+    roentgen = 82;
+    rad = 83;
+    rem = 84;
+    erg = 85;
+    dyne = 86;
+    barye = 87;
+    poise = 88;
+    rhe = 89;
+    stokes = 90;
+    darcy = 91;
+    kayser = 92;
+    lambert = 93;
+    phot = 94;
+    thermo_calorie = 95;
+    table_calorie = 96;
+    debye = 97;
+    abampere = 98;
+    abcoulomb = 99;
+    abfarad = 100;
+    abhenry = 101;
+    abohm = 102;
+    abmho = 103;
+    abvolt = 104;
+    abwatt = 105;
+    maxwell = 106;
+    gauss = 107;
+    gilbert = 108;
+    oersted = 109;
+    stilb = 110;
+    statampere = 111;
+    statcoulomb = 112;
+    statfarad = 113;
+    stathenry = 114;
+    statohm = 115;
+    statmho = 116;
+    statvolt = 117;
+    statwatt = 118;
+    statweber = 119;
+    stattesla = 120;
+    long_ton = 121;
+    short_ton = 122;
+    gross_hundredweight = 123;
+    hundredweight = 124;
+    av_pound = 125;
+    av_ounce = 126;
+    av_dram = 127;
+    troy_pound = 128;
+    troy_ounce = 129;
+    pennyweight = 130;
+    apothecaries_dram = 131;
+    scruple = 132;
+    grain = 133;
+    slug = 134;
+    pound_force = 135;
+    poundal = 136;
+    kip = 137;
+    ton_force = 138;
+    gram_force = 139;
+    inch = 140;
+    foot = 141;
+    yard = 142;
+    mile = 143;
+    us_survey_inch = 144;
+    us_survey_foot = 145;
+    us_survey_yard = 146;
+    us_survey_fathom = 147;
+    us_survey_rod = 148;
+    us_survey_chain = 149;
+    us_survey_link = 150;
+    us_survey_furlong = 151;
+    us_survey_mile = 152;
+    us_acre = 153;
+    imperial_gallon = 154;
+    imperial_quart = 155;
+    imperial_pint = 156;
+    imperial_gill = 157;
+    imperial_ounce = 158;
+    us_gallon = 159;
+    us_quart = 160;
+    us_pint = 161;
+    us_cup = 162;
+    us_gill = 163;
+    us_fluid_ounce = 164;
+    us_fluid_dram = 165;
+    us_minim = 166;
+    us_tablespoon = 167;
+    us_teaspoon = 168;
+    us_bushel = 169;
+    us_peck = 170;
+    us_dry_quart = 171;
+    us_dry_pint = 172;
+    thermo_kg_calorie = 173;
+    table_kg_calorie = 174;
+    us_label_teaspoon = 175;
+    us_label_tablespoon = 176;
+    us_label_cup = 177;
+    us_label_fluid_ounce = 178;
+    us_label_ounce = 179;
+    horsepower = 180;
+    electric_horsepower = 181;
+    boiler_horsepower = 182;
+    metric_horsepower = 183;
+    water_horsepower = 184;
+    uk_horsepower = 185;
+    degree_Fahrenheit = 186;
+    degree_Rankine = 187;
+    torr = 188;
+    standard_atmosphere = 189;
+    technical_atmosphere = 190;
+    mm_Hg = 191;
+    cm_Hg = 192;
+    cm_Hg_0C = 193;
+    in_Hg = 194;
+    in_Hg_32F = 195;
+    in_Hg_60F = 196;
+    ft_Hg = 197;
+    mm_water = 198;
+    cm_water = 199;
+    cm_water_4C = 200;
+    in_water = 201;
+    in_water_39F = 202;
+    in_water_60F = 203;
+    ft_water = 204;
+    ft_water_39F = 205;
+    light_year = 206;
+    light_week = 207;
+    light_hour = 208;
+    light_minute = 209;
+    light_second = 210;
+    parsec = 211;
+    printers_pica = 212;
+    computer_pica = 213;
+    printers_point = 214;
+    computer_point = 215;
+    thermo_btu = 216;
+    table_btu = 217;
+    mean_btu = 218;
+    btu_39F = 219;
+    btu_59F = 220;
+    btu_60F = 221;
+    tons_of_tnt = 222;
+    ec_therm = 223;
+    us_therm = 224;
+    year_365 = 225;
+    tropical_year = 226;
+    sidereal_year = 227;
+    sidereal_day = 228;
+    sidereal_hour = 229;
+    sidereal_minute = 230;
+    sidereal_second = 231;
+    shake = 232;
+    denier = 233;
+    tex = 234;
+    gon = 235;
+    nato_mil = 236;
+    pound_mole = 237;
+    ton_refrigeration = 238;
+    circular_mil = 239;
+    bel = 240;
+    neper = 241;
+    pH = 242;
+    petro_barrel = 243;
+    footlambert = 244;
+    footcandle = 245;
+    carat = 246;
+    bit = 247;
+    byte = 248;
+  }
+
+  enum Prefix {
+    uni = 0;
+    yotta = 1;
+    zetta = 2;
+    exa = 3;
+    peta = 4;
+    tera = 5;
+    giga = 6;
+    mega = 7;
+    kilo = 8;
+    hecto = 9;
+    deka = 10;
+    deci = 11;
+    centi = 12;
+    milli = 13;
+    micro = 14;
+    nano = 15;
+    pico = 16;
+    femto = 17;
+    atto = 18;
+    zepto = 19;
+    yocto = 20;
+    kibi = 21;
+    mebi = 22;
+    gibi = 23;
+    tebi = 24;
+    pebi = 25;
+    exbi = 26;
+    zebi = 27;
+    yobi = 28;
+  }
+
+  Unit unit = 1;
+  string source_url = 2;
+  Prefix prefix = 3;
+  sint32 power_numerator = 4;
+  sint32 power_denominator = 5;
+}
+
+message ExternalRootUnit {
+  enum Prefix {
+    uni = 0;
+    yotta = 1;
+    zetta = 2;
+    exa = 3;
+    peta = 4;
+    tera = 5;
+    giga = 6;
+    mega = 7;
+    kilo = 8;
+    hecto = 9;
+    deka = 10;
+    deci = 11;
+    centi = 12;
+    milli = 13;
+    micro = 14;
+    nano = 15;
+    pico = 16;
+    femto = 17;
+    atto = 18;
+    zepto = 19;
+    yocto = 20;
+    kibi = 21;
+    mebi = 22;
+    gibi = 23;
+    tebi = 24;
+    pebi = 25;
+    exbi = 26;
+    zebi = 27;
+    yobi = 28;
+  }
+
+  string unit = 1;
+  string source_url = 2;
+  string annotation = 3;
+  string lang = 4;
+  Prefix prefix = 5;
+  sint32 power_numerator = 6;
+  sint32 power_denominator = 7;
+}
+
+message RootUnits {
+  repeated EnumeratedRootUnit enumerated_root_unit = 1;
+  repeated ExternalRootUnit external_root_unit = 2;
+}
+
+message Float64ConversionFrom {
+  string id = 1;
+  string initial_unit = 2;
+  double initial_addend = 3;
+  sint32 initial_addend_decimal_place = 4;
+  double multiplicand = 5;
+  uint32 multiplicand_digits = 6;
+  double divisor = 7;
+  uint32 divisor_digits = 8;
+  double final_addend = 9;
+  sint32 final_addend_decimal_place = 10;
+  bool exact = 11;
+  repeated Note conversion_note = 12;
+}
+
+message SpecialConversionFrom {
+  string id = 1;
+  string conversion_url = 2;
+  string initial_unit = 3;
+  repeated Note conversion_description = 4;
+}
+
+message WSDLConversionFrom {
+  string id = 1;
+  string initial_unit = 2;
+  string wsdl_url = 3;
+  repeated Note wsdl_description = 4;
+}
+
+message Conversions {
+  repeated Float64ConversionFrom float64_conversion_from = 1;
+  repeated SpecialConversionFrom special_conversion_from = 2;
+  repeated WSDLConversionFrom wsdl_conversion_from = 3;
+}
+
+message Unit {
+  string id = 1;
+  string time_stamp = 2;
+  string dimension_url = 3;
+  repeated System unit_system = 4;
+  repeated Name unit_name = 5;
+  repeated Symbol unit_symbol = 6;
+  repeated CodeListValue code_list_value = 7;
+  RootUnits root_units = 8;
+  Conversions conversions = 9;
+  repeated Reference quantity_reference = 10;
+  repeated Note unit_version_history = 11;
+  repeated Definition unit_definition = 12;
+  repeated History unit_history = 13;
+  repeated Remark unit_remark = 14;
+}
+
+message UnitSet {
+  repeated Unit unit = 1;
+}
+
+message Length {
+  string symbol = 1;
+  sint32 power_numerator = 2;
+  sint32 power_denominator = 3;
+}
+
+message Mass {
+  string symbol = 1;
+  sint32 power_numerator = 2;
+  sint32 power_denominator = 3;
+}
+
+message Time {
+  string symbol = 1;
+  sint32 power_numerator = 2;
+  sint32 power_denominator = 3;
+}
+
+message ElectricCurrent {
+  string symbol = 1;
+  sint32 power_numerator = 2;
+  sint32 power_denominator = 3;
+}
+
+message ThermodynamicTemperature {
+  string symbol = 1;
+  sint32 power_numerator = 2;
+  sint32 power_denominator = 3;
+}
+
+message AmountOfSubstance {
+  string symbol = 1;
+  sint32 power_numerator = 2;
+  sint32 power_denominator = 3;
+}
+
+message LuminousIntensity {
+  string symbol = 1;
+  sint32 power_numerator = 2;
+  sint32 power_denominator = 3;
+}
+
+message PlaneAngle {
+  string symbol = 1;
+  sint32 power_numerator = 2;
+  sint32 power_denominator = 3;
+}
+
+message Item {
+  string item_url = 1;
+  string symbol = 2;
+  sint32 power_numerator = 3;
+  sint32 power_denominator = 4;
+}
+
+message Dimension {
+  string id = 1;
+  bool dimensionless = 2;
+  repeated Length length = 3;
+  repeated Mass mass = 4;
+  repeated Time time = 5;
+  repeated ElectricCurrent electric_current = 6;
+  repeated ThermodynamicTemperature thermodynamic_temperature = 7;
+  repeated AmountOfSubstance amount_of_substance = 8;
+  repeated LuminousIntensity luminous_intensity = 9;
+  repeated PlaneAngle plane_angle = 10;
+  repeated Item item = 11;
+}
+
+message DimensionSet {
+  repeated Dimension dimension = 1;
+}
+
+message CountedItem {
+  string id = 1;
+  repeated Name item_name = 2;
+  repeated Symbol item_symbol = 3;
+  repeated Note item_version_history = 4;
+  repeated Definition item_definition = 5;
+  repeated History item_history = 6;
+  repeated Remark item_remark = 7;
+}
+
+message CountedItemSet {
+  repeated CountedItem counted_item = 1;
+}
+
+message Quantity {
+  string id = 1;
+  string quantity_type = 2;
+  string dimension_url = 3;
+  repeated Name quantity_name = 4;
+  repeated Symbol quantity_symbol = 5;
+  repeated Reference unit_reference = 6;
+  repeated Note quantity_version_history = 7;
+  repeated Definition quantity_definition = 8;
+  repeated History quantity_history = 9;
+  repeated Remark quantity_remark = 10;
+}
+
+message QuantitySet {
+  repeated Quantity quantity = 1;
+}
+
+message Prefix {
+  string id = 1;
+  sint32 prefix_base = 2;
+  sint32 prefix_power = 3;
+  repeated Name prefix_name = 4;
+  repeated Symbol prefix_symbol = 5;
+}
+
+message PrefixSet {
+  repeated Prefix prefix = 1;
+}
