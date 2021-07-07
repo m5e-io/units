@@ -526,14 +526,14 @@ message Item {
 message Dimension {
   string id = 1;
   bool dimensionless = 2;
-  repeated Length length = 3;
-  repeated Mass mass = 4;
-  repeated Time time = 5;
-  repeated ElectricCurrent electric_current = 6;
-  repeated ThermodynamicTemperature thermodynamic_temperature = 7;
-  repeated AmountOfSubstance amount_of_substance = 8;
-  repeated LuminousIntensity luminous_intensity = 9;
-  repeated PlaneAngle plane_angle = 10;
+  Length length = 3;
+  Mass mass = 4;
+  Time time = 5;
+  ElectricCurrent electric_current = 6;
+  ThermodynamicTemperature thermodynamic_temperature = 7;
+  AmountOfSubstance amount_of_substance = 8;
+  LuminousIntensity luminous_intensity = 9;
+  PlaneAngle plane_angle = 10;
   repeated Item item = 11;
 }
 
