@@ -358,9 +358,9 @@ message EnumeratedRootUnit {
     yobi = 28;
   }
 
-  Unit unit = 1;
+  string unit = 1;
   string source_url = 2;
-  Prefix prefix = 3;
+  string prefix = 3;
   sint32 power_numerator = 4;
   sint32 power_denominator = 5;
 }
@@ -402,7 +402,7 @@ message ExternalRootUnit {
   string source_url = 2;
   string annotation = 3;
   string lang = 4;
-  Prefix prefix = 5;
+  string prefix = 5;
   sint32 power_numerator = 6;
   sint32 power_denominator = 7;
 }
