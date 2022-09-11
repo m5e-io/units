@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package units;
 
-option go_package = "github.com/m5eio/units";
+option go_package = "github.com/m5e-io/units";
 
 message Name {
   string name = 1;

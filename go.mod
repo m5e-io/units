@@ -1,4 +1,4 @@
-module github.com/m5eio/units
+module github.com/m5e-io/units
 
 go 1.19
 
